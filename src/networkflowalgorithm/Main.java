@@ -1,8 +1,27 @@
 package networkflowalgorithm;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+
+        UserInterface appSession = new UserInterface();
+        // Display welcome message
+        appSession.welcomeMessage();
+        // Load the Main Menu
+        String menuChoice = appSession.menuList();
+        while (!menuChoice.equals("q")) {
+            if ("l".equals(menuChoice)) {
+                System.out.println("\nLoad network data from file:\n-------------------------");
+                appSession.loadFile();
+                menuChoice = appSession.menuList();
+            } else {
+                System.out.println("\nInvalid input!");
+                menuChoice = appSession.menuList();
+            }
+        }
+        // Inform the program is exiting
+        System.out.println("\nYour session has ended. Goodbye!");
     }
 }

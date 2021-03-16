@@ -1,11 +1,15 @@
 package networkflowalgorithm;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.Scanner;
 
 public class UserInterface {
 
     // Display welcome message
-    void welcomeMessage() {
+    public void welcomeMessage() {
         System.out.println("      Welcome to the NETWORK FLOW SOLVER!\n" +
                 "===============================================\n" +
                 "This application will allow you to calculate\n" +
@@ -15,7 +19,7 @@ public class UserInterface {
     }
 
     // Main Menu methods
-    String menuList() {
+    public String menuList() {
         System.out.println(
                 "\nChoose option from the menu:\n"
                         + "-------------------------------\n"
@@ -26,10 +30,42 @@ public class UserInterface {
         return menuChoice;
     }
 
-    void  loadFile() {
+    public void loadData() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Type name of the file: ");
         String fileName = sc.nextLine();
-        System.out.println("Your file: " + fileName);
+//        System.out.println("Your file: " + fileName);
+        try {
+            loadFile(fileName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // User Interface methods
+    void loadFile( String fileName) throws Exception {
+        try {
+            String dirPath = System.getProperty("user.dir");
+            String fullPath = dirPath + File.separator + "samples" + File.separator + fileName;
+            Scanner readFile = new Scanner(new BufferedReader(new FileReader(fullPath)));
+            System.out.println("The file being loaded:\n" + fullPath);
+
+            if (readFile.hasNext()) {
+                String noOfNodes = readFile.nextLine();
+                System.out.println("\n=============================");
+                System.out.println("No of Nodes in this Graph: " + noOfNodes);
+            }
+            System.out.println("Content of Edges:");
+            while (readFile.hasNext()) {
+                String line = readFile.nextLine();
+                String[] lineArr = line.split(" ");
+                System.out.println(lineArr[0] + " -> " + lineArr[1] + ", CAPACITY: " + lineArr[2]);
+            }
+            readFile.close();
+            System.out.println("=============================");
+        }
+        catch (FileNotFoundException error) {
+            System.out.println("[EXCEPTION ERROR]: File not found!\n");
+        }
     }
 }

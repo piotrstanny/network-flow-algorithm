@@ -50,22 +50,26 @@ public class UserInterface {
             Scanner readFile = new Scanner(new BufferedReader(new FileReader(fullPath)));
             System.out.println("The file being loaded:\n" + fullPath);
 
-            if (readFile.hasNext()) {
-                String noOfNodes = readFile.nextLine();
-                System.out.println("\n=============================");
-                System.out.println("No of Nodes in this Graph: " + noOfNodes);
-            }
-            System.out.println("Content of Edges:");
-            while (readFile.hasNext()) {
-                String line = readFile.nextLine();
-                String[] lineArr = line.split(" ");
-                System.out.println(lineArr[0] + " -> " + lineArr[1] + ", CAPACITY: " + lineArr[2]);
-            }
-            readFile.close();
-            System.out.println("=============================");
+            displayEdges(readFile);
         }
         catch (FileNotFoundException error) {
             System.out.println("[EXCEPTION ERROR]: File not found!\n");
         }
+    }
+
+    void displayEdges(Scanner readFile) {
+        if (readFile.hasNext()) {
+            String noOfNodes = readFile.nextLine();
+            System.out.println("\n=============================");
+            System.out.println("No of Nodes in this Graph: " + noOfNodes);
+        }
+        System.out.println("List of Edges:");
+        while (readFile.hasNext()) {
+            String line = readFile.nextLine();
+            String[] lineArr = line.split(" ");
+            System.out.println(lineArr[0] + " -> " + lineArr[1] + ", CAPACITY: " + lineArr[2]);
+        }
+        readFile.close();
+        System.out.println("=============================");
     }
 }

@@ -51,9 +51,24 @@ public class UserInterface {
             System.out.println("The file being loaded:\n" + fullPath);
 
             displayEdges(readFile);
+            Scanner readFileAgain = new Scanner(new BufferedReader(new FileReader(fullPath)));
+            createGraph(readFileAgain);
+
+
+            readFile.close();
         }
         catch (FileNotFoundException error) {
             System.out.println("[EXCEPTION ERROR]: File not found!\n");
+        }
+    }
+
+    void createGraph(Scanner readFile) {
+        if (readFile.hasNext()) {
+            Integer noOfNodes = Integer.parseInt(readFile.nextLine());
+            Graph graph = new Graph(noOfNodes);
+            System.out.println("No of Nodes in this Graph: " + noOfNodes);
+            System.out.println("Graph has been created\n=============================");
+            System.out.println(graph.printGraph());
         }
     }
 
@@ -69,7 +84,6 @@ public class UserInterface {
             String[] lineArr = line.split(" ");
             System.out.println(lineArr[0] + " -> " + lineArr[1] + ", CAPACITY: " + lineArr[2]);
         }
-        readFile.close();
         System.out.println("=============================");
     }
 }

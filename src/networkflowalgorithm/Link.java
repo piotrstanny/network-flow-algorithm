@@ -12,4 +12,16 @@ public class Link {
         nextNode = next;
         this.capacity = capacity;
     }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public Node getLinkedNode() {
+        return linkedNode;
+    }
+
+    public Link getNextNode() {
+        return nextNode;
+    }
 }

@@ -24,7 +24,7 @@ public class Graph {
 
     // CLASS METHODS
     public void addEdge(int from, int to, int capacity) {
-        listOfNodes.get(from).addLinkedNode(listOfNodes.get(to));
+        listOfNodes.get(from).addLinkedNode(listOfNodes.get(to), capacity);
     }
 
     public void printGraph() {

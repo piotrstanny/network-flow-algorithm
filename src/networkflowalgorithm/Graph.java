@@ -20,7 +20,9 @@ public class Graph {
         }
     }
 
-    public String printGraph() {
-        return listOfNodesFrom.toString();
+    public void printGraph() {
+        for (NodeFrom node : listOfNodesFrom) {
+            System.out.println("Head Vertex: [" + node.getNodeNumber() + "] -> Linked Nodes: " + node.getLinkedNodes());
+        }
     }
 }

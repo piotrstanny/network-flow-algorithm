@@ -10,10 +10,11 @@ public class NodeFrom {
         linkedNodes = null;
     }
 
-    @Override
-    public String toString() {
-        return "NodeFrom{" +
-                "nodeNumber=" + nodeNumber +
-                "}\n";
+    public Integer getNodeNumber() {
+        return nodeNumber;
+    }
+
+    public NodeTo getLinkedNodes() {
+        return linkedNodes;
     }
 }

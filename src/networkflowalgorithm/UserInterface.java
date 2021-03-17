@@ -46,15 +46,13 @@ public class UserInterface {
     void loadFile( String fileName) throws Exception {
         try {
             String dirPath = System.getProperty("user.dir");
-            String fullPath = dirPath + File.separator + "samples" + File.separator + fileName;
+            String fullPath = dirPath + File.separator + "samples" + File.separator + "bridge_1.txt";
             Scanner readFile = new Scanner(new BufferedReader(new FileReader(fullPath)));
             System.out.println("The file being loaded:\n" + fullPath);
 
-            displayEdges(readFile);
-            Scanner readFileAgain = new Scanner(new BufferedReader(new FileReader(fullPath)));
-            createGraph(readFileAgain);
-
-
+//            displayEdges(readFile);
+//            Scanner readFileAgain = new Scanner(new BufferedReader(new FileReader(fullPath)));
+            createGraph(readFile);
             readFile.close();
         }
         catch (FileNotFoundException error) {
@@ -66,9 +64,10 @@ public class UserInterface {
         if (readFile.hasNext()) {
             Integer noOfNodes = Integer.parseInt(readFile.nextLine());
             Graph graph = new Graph(noOfNodes);
-            System.out.println("No of Nodes in this Graph: " + noOfNodes);
-            System.out.println("Graph has been created\n=============================");
-            System.out.println(graph.printGraph());
+            System.out.println("... Graph has been created!\n=============================");
+            System.out.println("No. of Nodes in this Graph: " + noOfNodes);
+            graph.printGraph();
+            System.out.println("=============================");
         }
     }
 
@@ -76,7 +75,7 @@ public class UserInterface {
         if (readFile.hasNext()) {
             String noOfNodes = readFile.nextLine();
             System.out.println("\n=============================");
-            System.out.println("No of Nodes in this Graph: " + noOfNodes);
+            System.out.println("No. of Nodes in this Graph: " + noOfNodes);
         }
         System.out.println("List of Edges:");
         while (readFile.hasNext()) {

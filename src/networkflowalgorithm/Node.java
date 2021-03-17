@@ -22,11 +22,14 @@ public class Node {
         if (linkedNodes == null) {
             return "null";
         } else {
-            return "[ " + linkedNodes.getLinkedNode().getNodeNumber() + " (" + linkedNodes.getCapacity() + ") ]";
-//            while (linkedNodes.getNextNode() != null) {
-//                Link tempLink = linkedNodes.getNextNode();
-////                StringBuilder
-//            }
+            StringBuilder str = new StringBuilder();
+            str.append("[").append(linkedNodes.getLinkedNode().getNodeNumber()).append(" (").append(linkedNodes.getCapacity()).append(")]");
+            while (linkedNodes.getNextNode() != null) {
+                linkedNodes = linkedNodes.getNextNode();
+                str.append(" -> ");
+                str.append("[").append(linkedNodes.getLinkedNode().getNodeNumber()).append(" (").append(linkedNodes.getCapacity()).append(")]");
+            }
+            return str.toString();
         }
     }
 }

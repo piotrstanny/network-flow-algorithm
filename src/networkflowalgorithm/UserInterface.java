@@ -63,11 +63,21 @@ public class UserInterface {
     void createGraph(Scanner readFile) {
         if (readFile.hasNext()) {
             int noOfNodes = Integer.parseInt(readFile.nextLine());
+            // Initialize Graph as Adjacency List with instances of its Nodes
             Graph graph = new Graph(noOfNodes);
             System.out.println("... Graph has been created!\n=============================");
             System.out.println("No. of Nodes in this Graph: " + noOfNodes);
+            // Add Edges to the Adjacency List
+            while (readFile.hasNext()) {
+                String line = readFile.nextLine();
+                String[] lineArr = line.split(" ");
+                graph.addEdge(Integer.parseInt(lineArr[0]), Integer.parseInt(lineArr[1]), Integer.parseInt(lineArr[2]));
+            }
+
             graph.printGraph();
             System.out.println("=============================");
+        } else {
+            System.out.println("The file is empty!! Load another file.");
         }
     }
 

@@ -18,7 +18,15 @@ public class Node {
         return nodeNumber;
     }
 
-    public Link getLinkedNodes() {
-        return linkedNodes;
+    public String getLinkedNodes() {
+        if (linkedNodes == null) {
+            return "null";
+        } else {
+            return "[ " + linkedNodes.getLinkedNode().getNodeNumber() + " (" + linkedNodes.getCapacity() + ") ]";
+//            while (linkedNodes.getNextNode() != null) {
+//                Link tempLink = linkedNodes.getNextNode();
+////                StringBuilder
+//            }
+        }
     }
 }

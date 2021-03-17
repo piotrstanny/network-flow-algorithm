@@ -29,7 +29,7 @@ public class Graph {
 
     public void printGraph() {
         for (Node node : listOfNodes) {
-            System.out.println("Head Vertex: [" + node.getNodeNumber() + "] -> Linked Nodes: " + node.getLinkedNodes());
+            System.out.println("Node: [" + node.getNodeNumber() + "] -> " + node.getLinkedNodes());
         }
     }
 }

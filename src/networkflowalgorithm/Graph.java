@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Graph {
 
     // ATTRIBUTES
-    private Integer noOfNodes;
-    private Integer sourceNodeNumber = 0;
-    private Integer targetNodeNumber;
+    private int noOfNodes;
+    private int sourceNodeNumber = 0;
+    private int targetNodeNumber;
     private ArrayList<Node> listOfNodes;
 
     // CONSTRUCTOR
-    public Graph(Integer noOfNodes) {
+    public Graph(int noOfNodes) {
         this.noOfNodes = noOfNodes;
         this.targetNodeNumber = noOfNodes - 1;
         // Create ArrayList with initial capacity
@@ -23,7 +23,7 @@ public class Graph {
     }
 
     // CLASS METHODS
-    public void addEdge(Integer from, Integer to) {
+    public void addEdge(int from, int to, int capacity) {
         listOfNodes.get(from).addLinkedNode(listOfNodes.get(to));
     }
 

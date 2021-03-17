@@ -62,7 +62,7 @@ public class UserInterface {
 
     void createGraph(Scanner readFile) {
         if (readFile.hasNext()) {
-            Integer noOfNodes = Integer.parseInt(readFile.nextLine());
+            int noOfNodes = Integer.parseInt(readFile.nextLine());
             Graph graph = new Graph(noOfNodes);
             System.out.println("... Graph has been created!\n=============================");
             System.out.println("No. of Nodes in this Graph: " + noOfNodes);

@@ -46,7 +46,7 @@ public class UserInterface {
     void loadFile( String fileName) throws Exception {
         try {
             String dirPath = System.getProperty("user.dir");
-            String fullPath = dirPath + File.separator + "samples" + File.separator + "bridge_1.txt";
+            String fullPath = dirPath + File.separator + "samples" + File.separator + fileName + ".txt";
             Scanner readFile = new Scanner(new BufferedReader(new FileReader(fullPath)));
             System.out.println("The file being loaded:\n" + fullPath);
 

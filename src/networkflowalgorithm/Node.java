@@ -2,20 +2,22 @@ package networkflowalgorithm;
 
 public class Node {
 
-    private int nodeNumber;
+    private final int NODE_NUMBER;
     private Link linkedNodes;
 
+    // CONSTRUCTOR
     public Node(int nodeNumber) {
-        this.nodeNumber = nodeNumber;
+        this.NODE_NUMBER = nodeNumber;
         linkedNodes = null;
     }
 
+    // CLASS METHODS
     public void addLinkedNode(Node linkedNode, int capacity) {
         linkedNodes = new Link(linkedNode, linkedNodes, capacity);
     }
 
     public int getNodeNumber() {
-        return nodeNumber;
+        return NODE_NUMBER;
     }
 
     public String getLinkedNodes() {

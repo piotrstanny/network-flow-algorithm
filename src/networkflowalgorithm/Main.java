@@ -11,7 +11,7 @@ public class Main {
         appSession.welcomeMessage();
         // Load the Main Menu
         String menuChoice = appSession.menuList();
-        // Run the method that a User have chosen
+        // Run the option that a User have chosen
         while (!menuChoice.equals("q")) {
             if ("l".equals(menuChoice)) {
                 System.out.println("\nLoad network data from file:\n-------------------------");

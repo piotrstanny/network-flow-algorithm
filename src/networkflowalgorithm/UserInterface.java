@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-    // Display welcome message
     public void welcomeMessage() {
         System.out.println("      Welcome to the NETWORK FLOW SOLVER!\n" +
                 "===============================================\n" +
@@ -18,7 +17,7 @@ public class UserInterface {
                 "Press any key to continue...");
     }
 
-    // Main Menu methods
+    // MAIN MENU METHODS
     public String menuList() {
         System.out.println(
                 "\nChoose option from the menu:\n"
@@ -26,8 +25,8 @@ public class UserInterface {
                         + "Q:\t Quit program\n"
                         + "L:\t Load network data from file\n");
         Scanner sc = new Scanner(System.in);
-        String menuChoice = sc.nextLine().toLowerCase();
-        return menuChoice;
+        // Return option chosen by user
+        return sc.nextLine().toLowerCase();
     }
 
     public void loadData() {
@@ -42,17 +41,26 @@ public class UserInterface {
         }
     }
 
-    // User Interface methods
-    void loadFile( String fileName) throws Exception {
+    // APPLICATION METHODS
+    private void loadFile( String fileName) throws Exception {
         try {
             String dirPath = System.getProperty("user.dir");
             String fullPath = dirPath + File.separator + "samples" + File.separator + fileName + ".txt";
             Scanner readFile = new Scanner(new BufferedReader(new FileReader(fullPath)));
             System.out.println("The file being loaded:\n" + fullPath);
+            // Create Graph as Adjacency List
+            Graph graph = createGraph(readFile);
+            // Display Graph as Adjacency List
+            if (graph == null) {
+                System.out.println("The file is empty!! Load another file.");
+            } else {
+                graph.printGraph();
+            }
 
-//            displayEdges(readFile);
+//            // Display all Edges for testing purposes
 //            Scanner readFileAgain = new Scanner(new BufferedReader(new FileReader(fullPath)));
-            createGraph(readFile);
+//            displayEdges(readFileAgain);
+
             readFile.close();
         }
         catch (FileNotFoundException error) {
@@ -60,24 +68,25 @@ public class UserInterface {
         }
     }
 
-    void createGraph(Scanner readFile) {
+    private Graph createGraph(Scanner readFile) {
+        // Check if file not empty
         if (readFile.hasNext()) {
-            int noOfNodes = Integer.parseInt(readFile.nextLine());
+            final int NO_OF_NODES = Integer.parseInt(readFile.nextLine());
             // Initialize Graph as Adjacency List with instances of its Nodes
-            Graph graph = new Graph(noOfNodes);
-            System.out.println("... Graph has been created!\n=============================");
-            System.out.println("No. of Nodes in this Graph: " + noOfNodes);
+            Graph graph = new Graph(NO_OF_NODES);
+            System.out.println("... Graph has been created!\n-----------------------------");
+            System.out.println("No. of Nodes in this Graph: " + NO_OF_NODES);
+            System.out.println("- Source Node: " + graph.getSourceNodeNumber());
+            System.out.println("- Target Node: " + graph.getTargetNodeNumber());
             // Add Edges to the Adjacency List
             while (readFile.hasNext()) {
                 String line = readFile.nextLine();
                 String[] lineArr = line.split(" ");
                 graph.addEdge(Integer.parseInt(lineArr[0]), Integer.parseInt(lineArr[1]), Integer.parseInt(lineArr[2]));
             }
-
-            graph.printGraph();
-            System.out.println("=============================");
+            return graph;
         } else {
-            System.out.println("The file is empty!! Load another file.");
+            return null;
         }
     }
 
@@ -85,7 +94,6 @@ public class UserInterface {
         if (readFile.hasNext()) {
             String noOfNodes = readFile.nextLine();
             System.out.println("\n=============================");
-            System.out.println("No. of Nodes in this Graph: " + noOfNodes);
         }
         System.out.println("List of Edges:");
         while (readFile.hasNext()) {

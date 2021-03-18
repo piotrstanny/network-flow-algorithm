@@ -4,16 +4,12 @@ import java.util.ArrayList;
 
 public class Graph {
 
-    // ATTRIBUTES
-    private int noOfNodes;
-    private int sourceNodeNumber = 0;
-    private int targetNodeNumber;
+    private final int TARGET_NODE_NUMBER;
     private ArrayList<Node> listOfNodes;
 
     // CONSTRUCTOR
     public Graph(int noOfNodes) {
-        this.noOfNodes = noOfNodes;
-        this.targetNodeNumber = noOfNodes - 1;
+        this.TARGET_NODE_NUMBER = noOfNodes - 1;
         // Create ArrayList with initial capacity
         listOfNodes = new ArrayList<Node>(noOfNodes);
         // Create instances of Nodes in the list
@@ -28,8 +24,18 @@ public class Graph {
     }
 
     public void printGraph() {
+        System.out.println("=======================================\nGraph representation as Adjacency List:\n");
         for (Node node : listOfNodes) {
             System.out.println("Node: [" + node.getNodeNumber() + "] -> " + node.getLinkedNodes());
         }
+        System.out.println("=======================================");
+    }
+
+    public int getTargetNodeNumber() {
+        return TARGET_NODE_NUMBER;
+    }
+
+    public int getSourceNodeNumber() {
+        return 0;
     }
 }

@@ -2,6 +2,10 @@ package networkflowalgorithm;
 
 import java.util.ArrayList;
 
+/*
+ * @author Piotr Stanny
+ */
+
 public class Graph {
 
     private final int TARGET_NODE_NUMBER;

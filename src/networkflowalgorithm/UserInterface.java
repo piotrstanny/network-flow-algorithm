@@ -6,6 +6,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 
+/*
+ * @author Piotr Stanny
+ */
+
 public class UserInterface {
 
     public void welcomeMessage() {

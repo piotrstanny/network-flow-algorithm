@@ -1,5 +1,9 @@
 package networkflowalgorithm;
 
+/*
+ * @author Piotr Stanny
+ */
+
 public class Node {
 
     private final int NODE_NUMBER;

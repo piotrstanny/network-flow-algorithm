@@ -1,5 +1,9 @@
 package networkflowalgorithm;
 
+/*
+ * @author Piotr Stanny
+ */
+
 public class Link {
 
     // Link once created has constant attributes

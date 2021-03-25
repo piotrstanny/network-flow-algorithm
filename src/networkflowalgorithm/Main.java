@@ -17,8 +17,8 @@ public class Main {
         // Keep running the User's options until q-Quit
         while (!menuChoice.equals("q")) {
             if ("l".equals(menuChoice)) {
-                System.out.println("\nLoad network data from file:\n-------------------------");
-                appSession.loadData();
+                System.out.println("\nLoad network data from .txt file:\n-------------------------");
+                appSession.loadOption();
                 menuChoice = appSession.menuList();
             } else {
                 System.out.println("\nInvalid input!");

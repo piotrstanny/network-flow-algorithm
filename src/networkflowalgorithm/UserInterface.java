@@ -16,8 +16,9 @@ public class UserInterface {
         System.out.println("      Welcome to the NETWORK FLOW SOLVER!\n" +
                 "===============================================\n" +
                 "This application will allow you to calculate\n" +
-                "the maximum flow of the network given,\n" +
-                "which you can provide with .txt or .csv file.\n\n" +
+                "the maximum flow of the flow network given,\n" +
+                "which you can provide with .txt file,\n" +
+                "in the ...project/samples/ folder.\n\n" +
                 "Press any key to continue...");
     }
 
@@ -25,28 +26,27 @@ public class UserInterface {
     public String menuList() {
         System.out.println(
                 "\nChoose option from the menu:\n"
-                        + "-------------------------------\n"
-                        + "Q:\t Quit program\n"
-                        + "L:\t Load network data from file\n");
+                + "-------------------------------\n"
+                + "Q:\t Quit program\n"
+                + "L:\t Load network data from .txt file\n");
         Scanner sc = new Scanner(System.in);
         // Return option chosen by user
         return sc.nextLine().toLowerCase();
     }
 
-    public void loadData() {
+    public void loadOption() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Type name of the file: ");
         String fileName = sc.nextLine();
-//        System.out.println("Your file: " + fileName);
         try {
-            loadFile(fileName);
+            loadTxt(fileName);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     // APPLICATION METHODS
-    private void loadFile( String fileName) throws Exception {
+    private void loadTxt(String fileName) throws Exception {
         try {
             String dirPath = System.getProperty("user.dir");
             String fullPath = dirPath + File.separator + "samples" + File.separator + fileName + ".txt";
@@ -56,11 +56,10 @@ public class UserInterface {
             Graph graph = createGraph(readFile);
             // Display Graph as Adjacency List
             if (graph == null) {
-                System.out.println("The file is empty!! Load another file.");
+                System.out.println("The file is empty!! Try different file.");
             } else {
                 graph.printGraph();
             }
-
 //            // Display all Edges for testing purposes
 //            Scanner readFileAgain = new Scanner(new BufferedReader(new FileReader(fullPath)));
 //            displayEdges(readFileAgain);

@@ -52,7 +52,6 @@ public class UserInterface {
         System.out.println("Computing maximum flow... \uD83D\uDCA9");
         try {
             computeMaxFlow();
-            System.out.println("- Target Vertex: " + digraph.getTargetVertex());
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -93,7 +92,7 @@ public class UserInterface {
             System.out.println("... Digraph has been created!\n-----------------------------");
             System.out.println("No. of Vertices in this Digraph: " + NO_OF_VERTICES);
             System.out.println("- Source Vertex: " + digraph.getSourceVertex());
-            System.out.println("- Target Vertex: " + digraph.getTargetVertex());
+            System.out.println("- Sink Vertex: " + digraph.getSinkVertex());
             // Add Edges to the Adjacency List
             while (readFile.hasNext()) {
                 String line = readFile.nextLine();
@@ -106,10 +105,21 @@ public class UserInterface {
         }
     }
 
+    // Edmonds-Karp Max Flow Algorithm Implementation (Ford + BFS)
     private void computeMaxFlow() throws Exception {
+        // Ford-Fulkerson Algorithm:
         if (digraph == null) {
             throw new Exception("\n[EXCEPTION ERROR]: Load File first to create Digraph!");
         }
+        Digraph residualGraph = digraph;
+        int maxFlow = 0;
+        int minCapacity = 0;
+        // Breadth-First Search Algorithm
+        System.out.println("Does path exists? - " +
+                residualGraph.breadthFirstSearch(
+                        residualGraph,
+                        residualGraph.getSourceVertex(),
+                        residualGraph.getSinkVertex()));
     }
 
     void displayEdges(Scanner readFile) {

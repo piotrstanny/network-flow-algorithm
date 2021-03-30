@@ -6,16 +6,20 @@ package networkflowalgorithm;
 
 public class Edge {
 
-    // Link once created has constant attributes
+    // Edge once created has constant attributes
     private final int CAPACITY;
-    private final Vertex TAIL_VERTEX;
-    private final Edge NEXT_EDGE;
+    private final int TAIL_VERTEX;
+    private final int HEAD_VERTEX;
+    private int flow;
+//    private final Edge NEXT_EDGE;
 
     // CONSTRUCTOR
-    public Edge(Vertex tail, Edge nextEdge, int capacity) {
+    public Edge(int head, int tail, int capacity) {
+        HEAD_VERTEX = head;
         TAIL_VERTEX = tail;
-        NEXT_EDGE = nextEdge;
+//        NEXT_EDGE = nextEdge;
         this.CAPACITY = capacity;
+        flow = 0;
     }
 
     // CLASS METHODS
@@ -23,11 +27,16 @@ public class Edge {
         return CAPACITY;
     }
 
-    public Vertex getTailVertex() {
+    public int getFlow() { return flow; }
+
+    public int getHead() {
+        return HEAD_VERTEX;
+    }
+    public int getTail() {
         return TAIL_VERTEX;
     }
 
-    public Edge getNextEdge() {
-        return NEXT_EDGE;
-    }
+//    public Edge getNextEdge() {
+//        return NEXT_EDGE;
+//    }
 }

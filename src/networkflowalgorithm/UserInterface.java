@@ -44,12 +44,18 @@ public class UserInterface {
         try {
             loadFile(fileName);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
     }
 
     public void maxFlowOption() {
         System.out.println("Computing maximum flow... \uD83D\uDCA9");
+        try {
+            computeMaxFlow();
+            System.out.println("- Target Vertex: " + digraph.getTargetVertex());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     // APPLICATION METHODS
@@ -58,7 +64,7 @@ public class UserInterface {
             String dirPath = System.getProperty("user.dir");
             String fullPath = dirPath + File.separator + "samples" + File.separator + fileName + ".txt";
             Scanner readFile = new Scanner(new BufferedReader(new FileReader(fullPath)));
-            System.out.println("The file being loaded:\n" + fullPath);
+            System.out.println("\nThe file being loaded:\n" + fullPath);
             // Create Digraph as Adjacency List
             digraph = createDigraph(readFile);
             // Display Digraph as Adjacency List
@@ -74,7 +80,7 @@ public class UserInterface {
             readFile.close();
         }
         catch (FileNotFoundException error) {
-            System.out.println("[EXCEPTION ERROR]: File not found!\n");
+            throw new Exception("\n[EXCEPTION ERROR]: File not found!\n");
         }
     }
 
@@ -97,6 +103,12 @@ public class UserInterface {
             return digraph;
         } else {
             return null;
+        }
+    }
+
+    private void computeMaxFlow() throws Exception {
+        if (digraph == null) {
+            throw new Exception("\n[EXCEPTION ERROR]: Load File first to create Digraph!");
         }
     }
 

@@ -8,10 +8,9 @@ import java.util.ArrayList;
 
 public class Vertex {
 
+    // Vertex attributes
     private final int VERTEX_NUMBER;
-//    private Edge edge;
     private final ArrayList<Edge> setOfEdges;
-
 
     // CONSTRUCTOR
     public Vertex(int vertexNumber) {
@@ -22,7 +21,6 @@ public class Vertex {
     // CLASS METHODS
     public void addLinkedVertex(int head, int tail, int capacity) {
         setOfEdges.add(new Edge(head, tail, capacity));
-
     }
 
     public String printAllEdges() {
@@ -34,13 +32,6 @@ public class Vertex {
                 str.append(" -> [").append(edge.getTail()).append(" (").append(edge.getCapacity()).append(")]");
             }
             return str.toString();
-
-//            str.append("[").append(edge.getTail().getVertexNumber()).append(" (").append(edge.getCapacity()).append(")]");
-//            while (edge.getNextEdge() != null) {
-//                edge = edge.getNextEdge();
-//                str.append(" -> ");
-//                str.append("[").append(edge.getTail().getVertexNumber()).append(" (").append(edge.getCapacity()).append(")]");
-
         }
     }
 

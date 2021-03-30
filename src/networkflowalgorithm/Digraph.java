@@ -1,13 +1,14 @@
 package networkflowalgorithm;
 
-import java.util.ArrayList;
-
 /*
  * @author Piotr Stanny
  */
 
+import java.util.ArrayList;
+
 public class Digraph {
 
+    // Digraph attributes
     private final int SINK_VERTEX;
     private final int SOURCE_VERTEX = 0;
     private final ArrayList<Vertex> setOfVertices;

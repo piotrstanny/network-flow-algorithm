@@ -26,12 +26,12 @@ public class Vertex {
     }
 
     public String printAllEdges() {
-        if (setOfEdges == null) {
-            return "null";
+        if (setOfEdges.isEmpty()) {
+            return " -> null";
         } else {
             StringBuilder str = new StringBuilder();
             for (Edge edge : setOfEdges) {
-                str.append("[").append(edge.getTail()).append(" (").append(edge.getCapacity()).append(")]");
+                str.append(" -> [").append(edge.getTail()).append(" (").append(edge.getCapacity()).append(")]");
             }
             return str.toString();
 

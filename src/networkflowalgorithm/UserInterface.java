@@ -12,6 +12,8 @@ import java.util.Scanner;
 
 public class UserInterface {
 
+    Digraph digraph;
+
     public void welcomeMessage() {
         System.out.println("      Welcome to the NETWORK FLOW SOLVER!\n" +
                 "===============================================\n" +
@@ -28,32 +30,37 @@ public class UserInterface {
                 "\nChoose option from the menu:\n"
                 + "-------------------------------\n"
                 + "Q:\t Quit program\n"
-                + "L:\t Load network data from .txt file\n");
+                + "L:\t Load network data from .txt file\n"
+                + "F:\t Compute Maximum Flow\n");
         Scanner sc = new Scanner(System.in);
         // Return option chosen by user
         return sc.nextLine().toLowerCase();
     }
 
-    public void loadOption() {
+    public void loadFileOption() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Type name of the file: ");
         String fileName = sc.nextLine();
         try {
-            loadTxt(fileName);
+            loadFile(fileName);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    public void maxFlowOption() {
+        System.out.println("Computing maximum flow... \uD83D\uDCA9");
+    }
+
     // APPLICATION METHODS
-    private void loadTxt(String fileName) throws Exception {
+    private void loadFile(String fileName) throws Exception {
         try {
             String dirPath = System.getProperty("user.dir");
             String fullPath = dirPath + File.separator + "samples" + File.separator + fileName + ".txt";
             Scanner readFile = new Scanner(new BufferedReader(new FileReader(fullPath)));
             System.out.println("The file being loaded:\n" + fullPath);
             // Create Digraph as Adjacency List
-            Digraph digraph = createDigraph(readFile);
+            digraph = createDigraph(readFile);
             // Display Digraph as Adjacency List
             if (digraph == null) {
                 System.out.println("The file is empty!! Try different file.");

@@ -18,12 +18,16 @@ public class Main {
         while (!menuChoice.equals("q")) {
             if ("l".equals(menuChoice)) {
                 System.out.println("\nLoad network data from .txt file:\n-------------------------");
-                appSession.loadOption();
-                menuChoice = appSession.menuList();
-            } else {
-                System.out.println("\nInvalid input!");
-                menuChoice = appSession.menuList();
+                appSession.loadFileOption();
+            } else if ("f".equals(menuChoice)) {
+                System.out.println("\nCompute the Maximum Flow:\n-------------------------");
+                appSession.maxFlowOption();
             }
+            else {
+                System.out.println("\nInvalid input!");
+            }
+            menuChoice = appSession.menuList();
+
         }
         // Inform the program is exiting
         System.out.println("\nYour session has ended. Goodbye!");

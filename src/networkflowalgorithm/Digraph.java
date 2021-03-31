@@ -30,7 +30,8 @@ public class Digraph {
     }
 
     public void printDigraph() {
-        System.out.println("=======================================\nDigraph representation as Adjacency List:\n");
+        System.out.println("=======================================\n" +
+                "Digraph representation as Adjacency List:\n");
         for (Vertex vertex : setOfVertices) {
             System.out.println("Vertex: [" + vertex.getVertexNumber() + "]" + vertex.printAllEdges());
         }

@@ -51,14 +51,14 @@ public class EdmondsKarp {
             result += minCapacity;
             System.out.println("Adding flow of "+minCapacity+" to the network...");
 
-            System.out.print("Current state of this path: (0)");
+            System.out.print("Current state of this path: ( 0 )");
             Stack<Edge> path = new Stack<>();
             for (int v = t; v != s; v = edgeTo[v].from()) {
                 path.push(edgeTo[v]);
             }
             while (!path.empty()) {
                 Edge e = path.peek();
-                System.out.print("-"+e.flow()+"/"+e.capacity()+"->("+e.to()+")");
+                System.out.print("-"+e.flow()+"/"+e.capacity()+"->( "+e.to()+" )");
                 path.pop();
             }
             System.out.println("\nCURRENT TOTAL FLOW: " + result);

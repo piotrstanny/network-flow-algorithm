@@ -21,19 +21,20 @@ public class Edge {
     }
 
     // CLASS METHODS
-    public int residualCapTo(int vertex) {
-        if (vertex == TAIL) {
+    public int residualCapTo() {
             return CAPACITY - flow;
-        }
-        else {
-            return flow;
-        }
+    }
+
+    public void addResidualFlow(int partialFlow) {
+            flow += partialFlow;
     }
 
     public int capacity() {
         return CAPACITY;
     }
-    public int getFlow() { return flow; }
+    public int flow() {
+        return flow;
+    }
     public int from() {
         return HEAD;
     }

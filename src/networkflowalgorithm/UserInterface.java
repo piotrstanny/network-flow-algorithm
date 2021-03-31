@@ -106,21 +106,13 @@ public class UserInterface {
         }
     }
 
-    // Edmonds-Karp Max Flow Algorithm Implementation (Ford + BFS)
     private void computeMaxFlow() throws Exception {
-        // Ford-Fulkerson Algorithm:
         if (digraph == null) {
             throw new Exception("\n[EXCEPTION ERROR]: Load File first to create Digraph!");
         }
-        Digraph residualGraph = digraph;
-        int maxFlow = 0;
-        int minCapacity = 0;
-        // Breadth-First Search Algorithm
-        System.out.println("Does path exists? - " +
-                residualGraph.breadthFirstSearch(
-                        residualGraph,
-                        residualGraph.getSourceVertex(),
-                        residualGraph.getSinkVertex()));
+        EdmondsKarp maxflow = new EdmondsKarp(digraph);
+        System.out.println("Max flow: " + maxflow.getResult());
+
     }
 
     void displayEdges(Scanner readFile) {

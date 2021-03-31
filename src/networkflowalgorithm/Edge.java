@@ -6,7 +6,7 @@ package networkflowalgorithm;
 
 public class Edge {
 
-    // Edge attributes
+    // ATTRIBUTES
     private final int CAPACITY;
     private final int TAIL_VERTEX;
     private final int HEAD_VERTEX;

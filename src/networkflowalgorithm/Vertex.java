@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Vertex {
 
-    // Vertex attributes
+    // ATTRIBUTES
     private final int VERTEX_NUMBER;
     private final ArrayList<Edge> setOfEdges;
 

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Digraph {
 
-    // Digraph attributes
+    // ATTRIBUTES
     private final int SINK_VERTEX;
     private final int SOURCE_VERTEX = 0;
     private final ArrayList<Vertex> setOfVertices;
@@ -27,10 +27,6 @@ public class Digraph {
     // CLASS METHODS
     public void addEdge(int head, int tail, int capacity) {
         setOfVertices.get(head).addLinkedVertex(head, tail, capacity);
-    }
-
-    public boolean breadthFirstSearch(Digraph digraph, int source, int sink) {
-        return true;
     }
 
     public void printDigraph() {

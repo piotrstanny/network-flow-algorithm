@@ -8,27 +8,27 @@ public class Edge {
 
     // ATTRIBUTES
     private final int CAPACITY;
-    private final int TAIL_VERTEX;
-    private final int HEAD_VERTEX;
+    private final int FROM_VERTEX;
+    private final int TO_VERTEX;
     private int flow;
 
     // CONSTRUCTOR
     public Edge(int head, int tail, int capacity) {
-        HEAD_VERTEX = head;
-        TAIL_VERTEX = tail;
+        FROM_VERTEX = head;
+        TO_VERTEX = tail;
         this.CAPACITY = capacity;
         flow = 0;
     }
 
     // CLASS METHODS
-    public int getCapacity() {
+    public int capacity() {
         return CAPACITY;
     }
     public int getFlow() { return flow; }
-    public int getHead() {
-        return HEAD_VERTEX;
+    public int from() {
+        return FROM_VERTEX;
     }
-    public int getTail() {
-        return TAIL_VERTEX;
+    public int to() {
+        return TO_VERTEX;
     }
 }

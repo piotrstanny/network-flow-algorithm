@@ -44,4 +44,12 @@ public class Digraph {
     public int getSourceVertex() {
         return SOURCE_VERTEX;
     }
+
+    public int getSize() {
+        return setOfVertices.size();
+    }
+
+    public Vertex getVertex(int v) {
+        return setOfVertices.get(v);
+    }
 }

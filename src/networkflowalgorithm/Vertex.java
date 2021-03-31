@@ -29,7 +29,7 @@ public class Vertex {
         } else {
             StringBuilder str = new StringBuilder();
             for (Edge edge : setOfEdges) {
-                str.append(" -> [").append(edge.getTail()).append(" (").append(edge.getCapacity()).append(")]");
+                str.append(" -> [").append(edge.to()).append(" (").append(edge.capacity()).append(")]");
             }
             return str.toString();
         }
@@ -37,5 +37,9 @@ public class Vertex {
 
     public int getVertexNumber() {
         return VERTEX_NUMBER;
+    }
+
+    public ArrayList<Edge> getEdges() {
+        return setOfEdges;
     }
 }

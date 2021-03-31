@@ -50,7 +50,6 @@ public class UserInterface {
     }
 
     public void maxFlowOption() {
-        System.out.println("Computing maximum flow... \uD83D\uDCA9");
         try {
             computeMaxFlow();
         } catch (Exception e) {
@@ -110,8 +109,8 @@ public class UserInterface {
         if (digraph == null) {
             throw new Exception("\n[EXCEPTION ERROR]: Load File first to create Digraph!");
         }
-        EdmondsKarp maxflow = new EdmondsKarp(digraph);
-        System.out.println("Max flow: " + maxflow.getResult());
+        EdmondsKarp maxFlow = new EdmondsKarp(digraph);
+        System.out.println("Max flow: " + maxFlow.getResult());
 
     }
 

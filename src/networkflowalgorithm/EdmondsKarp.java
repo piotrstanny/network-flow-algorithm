@@ -38,13 +38,13 @@ public class EdmondsKarp {
         visited[source] = true;
         queue.add(source);
         while (!queue.isEmpty())  {
-            int v1 = queue.remove();
-            for (Edge edge : digraph.getVertex(v1).getEdges()) {
-                int w = edge.to();
-                if (edge.residualCap(w) > 0 && !visited[w]) {
-                    edgeTo[w] = edge;
-                    visited[w] = true;
-                    queue.add(w);
+            int head = queue.remove();
+            for (Edge edge : digraph.getVertex(head).getEdges()) {
+                int tail = edge.to();
+                if (edge.residualCap(tail) > 0 && !visited[tail]) {
+                    edgeTo[tail] = edge;
+                    visited[tail] = true;
+                    queue.add(tail);
                 }
             }
         }

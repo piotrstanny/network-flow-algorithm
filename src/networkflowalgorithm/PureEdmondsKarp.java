@@ -8,9 +8,10 @@ package networkflowalgorithm;
  * This Class is a pure algorithm in order to log ONLY EXECUTION TIME <<<<
  */
 
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 public class PureEdmondsKarp {
 
@@ -18,10 +19,14 @@ public class PureEdmondsKarp {
     private boolean[] visited;
     private Edge[] edgeTo;
     private int result = 0;
+    Instant start, end;
+    double duration;
 
     // CONSTRUCTOR
     public PureEdmondsKarp(Digraph digraph) {
-
+        // Log starting time
+        start = Instant.now();
+        System.out.println("...\nCalculating Maximum Flow...");
         int s = digraph.getSourceVertex();
         int t = digraph.getSinkVertex();
 
@@ -39,6 +44,9 @@ public class PureEdmondsKarp {
             }
             result += minCapacity;
         }
+        end = Instant.now();
+        duration = ChronoUnit.MILLIS.between(start, end) / 1000.0;
+        System.out.print("Execution time: " + duration + " seconds");
     }
 
     // CLASS METHODS

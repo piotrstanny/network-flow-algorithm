@@ -19,8 +19,8 @@ public class Main {
             if ("l".equals(menuChoice)) {
                 System.out.println("\nLoad network data from .txt file:\n--------------------------------");
                 appSession.loadFileOption();
-            } else if ("s".equals(menuChoice)) {
-                System.out.println("\nShow Steps of Max Flow Algorithm:\n---------------------------------");
+            } else if ("f".equals(menuChoice)) {
+                System.out.println("\nMax Flow Algorithm with steps:\n---------------------------------");
                 appSession.maxFlowOption();
             } else if ("t".equals(menuChoice)) {
                 System.out.println("\nExecution time - run pure Algorithm:\n------------------------------------");

@@ -5,6 +5,7 @@ package networkflowalgorithm;
  *
  * Algorithm: Edmonds-Karp Max Flow Implementation
  * which is the Ford-Fulkerson Alg + Breadth-First Search Alg
+ * This Class is a pure algorithm in order to log ONLY EXECUTION TIME <<<<
  */
 
 import java.util.LinkedList;
@@ -47,48 +48,24 @@ public class PureEdmondsKarp {
         visited = new boolean[digraph.getSize()];
         edgeTo = new Edge[digraph.getSize()];
         Queue<Integer> queue = new LinkedList<>();
-
         // Begin with source Vertex
         visited[source] = true;
         queue.add(source);
-
         // Go to Vertex from the queue
         while (!queue.isEmpty())  {
-//            System.out.println("\nQueue content: " + queue.toString());
 
             int head = queue.remove();
-
-//            System.out.println("Removing (" + head + ") from queue..." +
-//                            "\nQueue content: " + queue.toString() +
-//                            "\n\n======================================" +
-//                            "\n | INSIDE VERTEX (" + head+"):");
-
             // Explore all Edges from this Vertex
             for (Edge edge : digraph.getVertex(head).getEdges()) {
                 int tail = edge.to();
-//                System.out.println(" | \n | Exploring Edge ("+head+")->("+tail+")...");
                 if (edge.residualCapTo() > 0 && !visited[tail]) {
                     edgeTo[tail] = edge;
                     visited[tail] = true;
                     queue.add(tail);
-
-//                    if (tail == sink) {
-//                        System.out.println(" | !!! THE SINK (" + tail + ") HAS BEEN REACHED !!!");
-//                    }
-//                    System.out.println(" | -- Marking Vertex (" + tail + ") as visited..." +
-//                                    "\n | -- Adding Vertex (" + tail + ") to the queue...");
                 }
-//                else if (visited[tail]){
-//                    System.out.println(" | -- Vertex ("+tail+") was already visited!");
-//                } else {
-//                    System.out.println(" | -- Edge ("+head+")->("+tail+") is already FULL!");
-//                }
             }
-//            System.out.println(" | \n | NO MORE EDGES FROM VERTEX ("+head+")" +
-//                            "\n======================================");
         }
         // Has augmenting path to sink?
-        System.out.println("\nHAS AUGMENTING PATH? - " + visited[sink]);
         return visited[sink];
     }
 

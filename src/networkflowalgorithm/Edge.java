@@ -24,11 +24,9 @@ public class Edge {
     public int residualCapTo() {
             return CAPACITY - flow;
     }
-
     public void addResidualFlow(int partialFlow) {
             flow += partialFlow;
     }
-
     public int capacity() {
         return CAPACITY;
     }
@@ -41,4 +39,5 @@ public class Edge {
     public int to() {
         return TAIL;
     }
+    public void resetFlow() { flow = 0; }
 }

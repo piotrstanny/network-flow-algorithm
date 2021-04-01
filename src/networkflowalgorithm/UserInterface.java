@@ -116,6 +116,7 @@ public class UserInterface {
         if (digraph == null) {
             throw new Exception("\n[EXCEPTION ERROR]: Load File first to create Digraph!");
         }
+        digraph.resetFlows();
         EdmondsKarp maxFlow = new EdmondsKarp(digraph);
         System.out.println("\n###############################\n" +
                         "MAXIMUM FLOW OF THIS NETWORK: " + maxFlow.getResult());
@@ -126,6 +127,7 @@ public class UserInterface {
         if (digraph == null) {
             throw new Exception("\n[EXCEPTION ERROR]: Load File first to create Digraph!");
         }
+        digraph.resetFlows();
         PureEdmondsKarp maxFlow = new PureEdmondsKarp(digraph);
         System.out.println("\n###############################\n" +
                 "MAXIMUM FLOW OF THIS NETWORK: " + maxFlow.getResult());

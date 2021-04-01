@@ -38,18 +38,23 @@ public class Digraph {
         System.out.println("=======================================");
     }
 
+    public void resetFlows() {
+        for (Vertex v : setOfVertices) {
+            for (Edge e : v.getEdges()) {
+                e.resetFlow();
+            }
+        }
+    };
+
     public int getSinkVertex() {
         return SINK_VERTEX;
     }
-
     public int getSourceVertex() {
         return SOURCE_VERTEX;
     }
-
     public int getSize() {
         return setOfVertices.size();
     }
-
     public Vertex getVertex(int v) {
         return setOfVertices.get(v);
     }

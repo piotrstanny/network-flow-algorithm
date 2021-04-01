@@ -16,7 +16,7 @@ public class UserInterface {
     Digraph digraph;
 
     public void welcomeMessage() {
-        System.out.println("      Welcome to the NETWORK FLOW SOLVER!\n" +
+        System.out.println("\n      Welcome to the NETWORK FLOW SOLVER!\n" +
                 "===============================================\n" +
                 "This application will allow you to calculate\n" +
                 "the maximum flow of the flow network given,\n" +
@@ -32,7 +32,8 @@ public class UserInterface {
                 + "-------------------------------\n"
                 + "Q:\t Quit program\n"
                 + "L:\t Load network data from .txt file\n"
-                + "F:\t Compute Maximum Flow\n");
+                + "S:\t Show steps of Max Flow Algorithm\n"
+                + "T:\t Pure algorithm execution time\n");
         Scanner sc = new Scanner(System.in);
         // Return option chosen by user
         return sc.nextLine().toLowerCase();
@@ -52,6 +53,14 @@ public class UserInterface {
     public void maxFlowOption() {
         try {
             computeMaxFlow();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void maxFlowPure() {
+        try {
+            pureMaxFlow();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -112,6 +121,16 @@ public class UserInterface {
         EdmondsKarp maxFlow = new EdmondsKarp(digraph);
         System.out.println("\n###############################\n" +
                         "MAXIMUM FLOW OF THIS NETWORK: " + maxFlow.getResult());
+
+    }
+
+    private void pureMaxFlow() throws Exception {
+        if (digraph == null) {
+            throw new Exception("\n[EXCEPTION ERROR]: Load File first to create Digraph!");
+        }
+        PureEdmondsKarp maxFlow = new PureEdmondsKarp(digraph);
+        System.out.println("\n###############################\n" +
+                "MAXIMUM FLOW OF THIS NETWORK: " + maxFlow.getResult());
 
     }
 

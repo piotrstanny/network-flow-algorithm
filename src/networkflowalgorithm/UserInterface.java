@@ -10,20 +10,21 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 
-
 public class UserInterface {
 
     Digraph digraph;
     String fileName;
 
     public void welcomeMessage() {
-        System.out.println("\n      Welcome to the NETWORK FLOW SOLVER!\n" +
+        System.out.println("\n\n      Welcome to the NETWORK FLOW SOLVER!\n" +
                 "===============================================\n" +
                 "This application will allow you to calculate\n" +
-                "the maximum flow of the flow network given,\n" +
-                "which you can provide with .txt file,\n" +
+                "the maximum flow of the network given,\n" +
+                "which you can provide in .txt file,\n" +
                 "in the ...project/samples/ folder.\n\n" +
-                "Press any key to continue...");
+                "Press Enter to continue...");
+        try{System.in.read();}
+        catch(Exception e){}
     }
 
 

@@ -5,6 +5,7 @@ package networkflowalgorithm;
  *
  * Algorithm: Edmonds-Karp Max Flow Implementation
  * which is the Ford-Fulkerson Alg + Breadth-First Search Alg
+ * You can uncomment the Console Logs to track EXACT GRAPH TRAVERSAL <<<<
  */
 
 import java.util.LinkedList;

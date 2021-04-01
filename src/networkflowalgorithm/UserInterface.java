@@ -25,6 +25,7 @@ public class UserInterface {
                 "Press any key to continue...");
     }
 
+
     // MAIN MENU METHODS
     public String menuList() {
         System.out.println(
@@ -38,7 +39,7 @@ public class UserInterface {
         // Return option chosen by user
         return sc.nextLine().toLowerCase();
     }
-
+    // Menu option - L
     public void loadFileOption() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Type name of the file: ");
@@ -49,7 +50,7 @@ public class UserInterface {
             System.out.println(e);
         }
     }
-
+    // Menu option - S
     public void maxFlowOption() {
         try {
             computeMaxFlow();
@@ -57,7 +58,7 @@ public class UserInterface {
             System.out.println(e);
         }
     }
-
+    // Menu option - T
     public void maxFlowPure() {
         try {
             pureMaxFlow();
@@ -65,6 +66,7 @@ public class UserInterface {
             System.out.println(e);
         }
     }
+
 
     // APPLICATION METHODS
     private void loadFile(String fileName) throws Exception {
@@ -81,10 +83,6 @@ public class UserInterface {
             } else {
                 digraph.printDigraph();
             }
-//            // Display all Edges for testing purposes
-//            Scanner readFileAgain = new Scanner(new BufferedReader(new FileReader(fullPath)));
-//            displayEdges(readFileAgain);
-
             readFile.close();
         }
         catch (FileNotFoundException error) {
@@ -131,20 +129,5 @@ public class UserInterface {
         PureEdmondsKarp maxFlow = new PureEdmondsKarp(digraph);
         System.out.println("\n###############################\n" +
                 "MAXIMUM FLOW OF THIS NETWORK: " + maxFlow.getResult());
-
-    }
-
-    void displayEdges(Scanner readFile) {
-        if (readFile.hasNext()) {
-            String noOfVertices = readFile.nextLine();
-            System.out.println("\n=============================");
-        }
-        System.out.println("List of Edges:");
-        while (readFile.hasNext()) {
-            String line = readFile.nextLine();
-            String[] lineArr = line.split(" ");
-            System.out.println(lineArr[0] + " -> " + lineArr[1] + ", CAPACITY: " + lineArr[2]);
-        }
-        System.out.println("=============================");
     }
 }

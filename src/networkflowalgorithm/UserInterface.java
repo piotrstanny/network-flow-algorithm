@@ -76,7 +76,6 @@ public class UserInterface {
             String dirPath = System.getProperty("user.dir");
             String fullPath = dirPath + File.separator + "samples" + File.separator + fileName + ".txt";
             Scanner readFile = new Scanner(new BufferedReader(new FileReader(fullPath)));
-            System.out.println("\nThe file being loaded:\n" + fullPath);
             // Create Digraph as Adjacency List
             digraph = createDigraph(readFile);
             // Display Digraph as Adjacency List
@@ -84,6 +83,11 @@ public class UserInterface {
                 System.out.println("The file is empty!! Try different file.");
             } else {
                 digraph.printDigraph();
+                System.out.println("\nThe file loaded:\n" + fullPath);
+                System.out.println("... Digraph has been created!\n-----------------------------");
+                System.out.println("No. of Vertices in this Digraph: " + digraph.getSize());
+                System.out.println("- Source Vertex: " + digraph.getSourceVertex());
+                System.out.println("- Sink Vertex: " + digraph.getSinkVertex());
             }
             readFile.close();
         }
@@ -98,10 +102,10 @@ public class UserInterface {
             final int NO_OF_VERTICES = Integer.parseInt(readFile.nextLine());
             // Initialize Digraph as Adjacency List with instances of its Vertices
             Digraph digraph = new Digraph(NO_OF_VERTICES);
-            System.out.println("... Digraph has been created!\n-----------------------------");
-            System.out.println("No. of Vertices in this Digraph: " + NO_OF_VERTICES);
-            System.out.println("- Source Vertex: " + digraph.getSourceVertex());
-            System.out.println("- Sink Vertex: " + digraph.getSinkVertex());
+            System.out.println("Creating Digraph...\n");
+//            System.out.println("No. of Vertices in this Digraph: " + NO_OF_VERTICES);
+//            System.out.println("- Source Vertex: " + digraph.getSourceVertex());
+//            System.out.println("- Sink Vertex: " + digraph.getSinkVertex());
             // Add Edges to the Adjacency List
             while (readFile.hasNext()) {
                 String line = readFile.nextLine();

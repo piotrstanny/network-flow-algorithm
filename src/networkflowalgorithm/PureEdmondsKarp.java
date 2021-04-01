@@ -23,47 +23,20 @@ public class PureEdmondsKarp {
 
         int s = digraph.getSourceVertex();
         int t = digraph.getSinkVertex();
-        int pathNo = 1;
 
         // As long as there is augmenting path from source to sink
         while (breadthFirstSearch(digraph, s, t)) {
+
             int minCapacity = Integer.MAX_VALUE;
-            // Display current augmenting path
-            Stack<Integer> stack = new Stack<>();
-            for (int v = t; v != s; v = edgeTo[v].from()) {
-                stack.push(edgeTo[v].to());
-            }
-            System.out.print("Path No. " + pathNo +": (0)");
-            pathNo++;
-            while (!stack.empty()) {
-                System.out.print("->("+stack.pop()+")");
-            }
-            System.out.println();
             // Find minimum capacity in the path
             for (int v = t; v != s; v = edgeTo[v].from()) {
                 minCapacity = Math.min(minCapacity, edgeTo[v].residualCapTo());
             }
-            System.out.println("MIN CAPACITY OF THIS PATH: " + minCapacity);
             // Add to the flow
             for (int v = t; v != s; v = edgeTo[v].from()) {
                 edgeTo[v].addResidualFlow(minCapacity);
             }
             result += minCapacity;
-            System.out.println("Adding flow of "+minCapacity+" to the network...");
-
-            System.out.print("Current state of this path: ( 0 )");
-            Stack<Edge> path = new Stack<>();
-            for (int v = t; v != s; v = edgeTo[v].from()) {
-                path.push(edgeTo[v]);
-            }
-            while (!path.empty()) {
-                Edge e = path.peek();
-                System.out.print("-"+e.flow()+"/"+e.capacity()+"->( "+e.to()+" )");
-                path.pop();
-            }
-            System.out.println("\nCURRENT TOTAL FLOW: " + result);
-
-
         }
     }
 

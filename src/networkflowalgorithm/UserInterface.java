@@ -1,7 +1,7 @@
 package networkflowalgorithm;
 
 /*
- * @author Piotr Stanny
+ * @author Piotr Stanny - w1729221
  */
 
 import java.io.BufferedReader;
@@ -21,7 +21,8 @@ public class UserInterface {
                 "This application will allow you to calculate\n" +
                 "the maximum flow of the network given,\n" +
                 "which you can provide in .txt file,\n" +
-                "in the ...project/samples/ folder.\n\n" +
+                "in the ...project/samples/ folder.\n" +
+                "Samples bridge_1-15 & ladder_1-15 are already there.\n\n" +
                 "Press Enter to continue...");
         try{System.in.read();}
         catch(Exception e){}
@@ -102,7 +103,7 @@ public class UserInterface {
             final int NO_OF_VERTICES = Integer.parseInt(readFile.nextLine());
             // Initialize Digraph as Adjacency List with instances of its Vertices
             Digraph digraph = new Digraph(NO_OF_VERTICES);
-            System.out.println("Creating Digraph...\n");
+            System.out.println("\nCreating Digraph...");
 //            System.out.println("No. of Vertices in this Digraph: " + NO_OF_VERTICES);
 //            System.out.println("- Source Vertex: " + digraph.getSourceVertex());
 //            System.out.println("- Sink Vertex: " + digraph.getSinkVertex());

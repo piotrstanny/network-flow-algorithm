@@ -1,7 +1,7 @@
 package networkflowalgorithm;
 
 /*
- * @author Piotr Stanny
+ * @author Piotr Stanny - w1729221
  */
 
 import java.util.ArrayList;
@@ -30,12 +30,12 @@ public class Digraph {
     }
 
     public void printDigraph() {
-        System.out.println("=======================================\n" +
-                "Digraph representation as Adjacency List:\n");
+        System.out.println("\nDigraph representation as Adjacency List:\n" +
+                            "==========================================");
         for (Vertex vertex : setOfVertices) {
             System.out.println("Vertex: [" + vertex.getVertexNumber() + "]" + vertex.printAllEdges());
         }
-        System.out.println("=======================================");
+        System.out.println("==========================================");
     }
 
     public void resetFlows() {

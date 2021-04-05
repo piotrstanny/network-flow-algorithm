@@ -1,7 +1,7 @@
 package networkflowalgorithm;
 
 /*
- * @author Piotr Stanny
+ * @author Piotr Stanny - w1729221
  */
 
 public class Edge {

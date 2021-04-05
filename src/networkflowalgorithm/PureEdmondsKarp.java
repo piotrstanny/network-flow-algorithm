@@ -1,7 +1,7 @@
 package networkflowalgorithm;
 
 /*
- * @author Piotr Stanny
+ * @author Piotr Stanny - w1729221
  *
  * Algorithm: Edmonds-Karp Max Flow Implementation
  * which is the Ford-Fulkerson Alg + Breadth-First Search Alg

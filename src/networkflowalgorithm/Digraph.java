@@ -12,6 +12,7 @@ public class Digraph {
     private final int SINK_VERTEX;
     private final int SOURCE_VERTEX = 0;
     private final ArrayList<Vertex> setOfVertices;
+    private int NO_OF_EDGES = 0;
 
     // CONSTRUCTOR
     public Digraph(int noOfVertices) {
@@ -46,6 +47,10 @@ public class Digraph {
         }
     };
 
+    public void edgeCount() {
+        NO_OF_EDGES++;
+    }
+
     public int getSinkVertex() {
         return SINK_VERTEX;
     }
@@ -57,5 +62,8 @@ public class Digraph {
     }
     public Vertex getVertex(int v) {
         return setOfVertices.get(v);
+    }
+    public int getNoOfEdges() {
+        return NO_OF_EDGES;
     }
 }

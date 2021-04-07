@@ -84,11 +84,11 @@ public class UserInterface {
                 System.out.println("The file is empty!! Try different file.");
             } else {
                 digraph.printDigraph();
-                System.out.println("\nThe file loaded:\n" + fullPath);
-                System.out.println("... Digraph has been created!\n-----------------------------");
-                System.out.println("No. of Vertices in this Digraph: " + digraph.getSize());
-                System.out.println("- Source Vertex: " + digraph.getSourceVertex());
-                System.out.println("- Sink Vertex: " + digraph.getSinkVertex());
+                System.out.println("\nThe file loaded:\n" + fullPath + "\n-----------------------------");
+                System.out.println("No. of Vertices: " + digraph.getSize());
+                System.out.println("No. of Edges: " + digraph.getNoOfEdges());
+                System.out.println("- Source Vertex: (" + digraph.getSourceVertex()+")");
+                System.out.println("- Sink Vertex: (" + digraph.getSinkVertex()+")");
             }
             readFile.close();
         }
@@ -104,14 +104,12 @@ public class UserInterface {
             // Initialize Digraph as Adjacency List with instances of its Vertices
             Digraph digraph = new Digraph(NO_OF_VERTICES);
             System.out.println("\nCreating Digraph...");
-//            System.out.println("No. of Vertices in this Digraph: " + NO_OF_VERTICES);
-//            System.out.println("- Source Vertex: " + digraph.getSourceVertex());
-//            System.out.println("- Sink Vertex: " + digraph.getSinkVertex());
             // Add Edges to the Adjacency List
             while (readFile.hasNext()) {
                 String line = readFile.nextLine();
                 String[] lineArr = line.split(" ");
                 digraph.addEdge(Integer.parseInt(lineArr[0]), Integer.parseInt(lineArr[1]), Integer.parseInt(lineArr[2]));
+                digraph.edgeCount();
             }
             return digraph;
         } else {
